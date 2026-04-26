@@ -1,8 +1,8 @@
 flask
 flask-cors
+gunicorn
+yfinance
 pandas
 numpy
-yfinance
 scikit-learn
 openai
-python-dotenv
