@@ -14,6 +14,3 @@ frontend/build/
 # Env (API keys)
 .env
 backend/.env
-
-# Mac
-.DS_Store
