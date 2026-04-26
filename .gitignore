@@ -13,4 +13,4 @@ frontend/build/
 
 # Env (API keys)
 .env
-backend/.env
+backend/.env.DS_Store
