@@ -1,0 +1,19 @@
+# Python
+venv/
+.venv/
+backend/venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+frontend/node_modules/
+build/
+frontend/build/
+
+# Env (API keys)
+.env
+backend/.env
+
+# Mac
+.DS_Store
