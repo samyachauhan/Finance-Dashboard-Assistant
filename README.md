@@ -35,10 +35,10 @@ Technical WalkThrough: https://drive.google.com/file/d/1s9Tm3rV_sYX75PsWzPvqrf9o
 The system was evaluated across multiple stocks using several machine learning models and quantitative metrics. Because stock behavior varies over time, results differ depending on the selected ticker; however, consistent performance trends were observed.
 
 ## Models Tested:
-Linear Regression
-Ridge Regression
-Lasso Regression
-Baseline model (predict next day price = current price)
+- Linear Regression
+- Ridge Regression
+- Lasso Regression
+- Baseline Model (predict next day price = current price)
 
 ## Metrics Used:
 R² (Coefficient of Determination)
