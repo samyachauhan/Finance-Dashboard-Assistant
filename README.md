@@ -44,7 +44,7 @@ Baseline model (predict next day price = current price)
 R² (Coefficient of Determination)
 MAE (Mean Absolute Error)
 RMSE (Root Mean Squared Error)
-Example Results (AAPL)
+Example Results
 Best Model: Linear Regression with engineered features
 R²: ~0.99
 MAE: ~2.33
