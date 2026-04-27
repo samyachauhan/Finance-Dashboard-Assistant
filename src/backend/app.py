@@ -6,7 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = os.getenv("OPENAI_API_KEY")
+
+if api_key:
+    client = OpenAI(api_key=api_key)
+else:
+    client = None
 
 from data_pipeline import (
     load_data,
@@ -233,7 +238,6 @@ def predict():
         return jsonify({"error": str(e)}), 400
 
 
-
 @app.route("/ai-summary", methods=["POST"])
 def ai_summary():
     try:
@@ -281,31 +285,41 @@ def ai_summary():
 
         prompt_comparison = []
 
-        for name, prompt in prompts.items():
-            response = client.chat.completions.create(
-                model="gpt-4.1-mini",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You explain ML results clearly for beginner investors."
-                    },
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                max_tokens=150,
-                temperature=0.3
-            )
+        if client:
+            for name, prompt in prompts.items():
+                response = client.chat.completions.create(
+                    model="gpt-4.1-mini",
+                    messages=[
+                        {
+                            "role": "system",
+                            "content": "You explain ML results clearly for beginner investors."
+                        },
+                        {
+                            "role": "user",
+                            "content": prompt
+                        }
+                    ],
+                    max_tokens=150,
+                    temperature=0.3
+                )
 
-            output = response.choices[0].message.content
+                output = response.choices[0].message.content
 
-            prompt_comparison.append({
-                "prompt_version": name,
-                "output": output,
-                "word_count": len(output.split()),
-                "chosen_for_final_app": name == "Prompt C - Strict Dashboard"
-            })
+                prompt_comparison.append({
+                    "prompt_version": name,
+                    "output": output,
+                    "word_count": len(output.split()),
+                    "chosen_for_final_app": name == "Prompt C - Strict Dashboard"
+                })
+
+        else:
+            for name in prompts.keys():
+                prompt_comparison.append({
+                    "prompt_version": name,
+                    "output": "Demo mode: AI explanation unavailable (no API key provided). See demo video for full functionality.",
+                    "word_count": 0,
+                    "chosen_for_final_app": name == "Prompt C - Strict Dashboard"
+                })
 
         return jsonify({
             "summary": prompt_comparison[-1]["output"],
