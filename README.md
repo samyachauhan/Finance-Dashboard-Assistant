@@ -27,6 +27,7 @@ This project aims to answer the question: Can machine learning models accurately
 
 # Video Links
 Project Demo: https://drive.google.com/file/d/1VZkKQxt0icGlHIcstatOrJcc2dEU-LLY/view?usp=share_link
+
 Technical WalkThrough: https://drive.google.com/file/d/1s9Tm3rV_sYX75PsWzPvqrf9oOD6-EFgY/view?usp=share_link 
 
 
