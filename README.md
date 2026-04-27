@@ -18,6 +18,7 @@ This project addresses the real-world problem of predicting stock price movement
 - Install dependencies
 - Start the React app with npm start
 5. Open your browser and go to http://localhost:3000 to use the application
+
 HOW TO USE:
 1. Enter a stock ticker (e.g., AAPL) in the input box.
 2. Click “Get Stock Data” to load and preprocess historical stock data.
@@ -70,4 +71,4 @@ The dashboard interface allows users to easily compare models and explore result
 
 
 # Individual Contributions
-This was a solo project I (Samya Chauan) completed.
+This was a solo project I (Samya Chauhan) completed.
